@@ -1,5 +1,6 @@
-package com.nelson.aluraflix.model;
+package com.nelson.aluraflix.entity;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,10 @@ public class Video {
 
     private String description;
 
-    private Integer categoryId;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    @JsonBackReference
+    private Category category;
 
     private String url;
 }

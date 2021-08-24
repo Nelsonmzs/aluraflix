@@ -1,8 +1,11 @@
-package com.nelson.aluraflix.service;
+package com.nelson.aluraflix.service.serviceImpl;
 
-import com.nelson.aluraflix.mapper.VideoDTO;
-import com.nelson.aluraflix.model.Video;
+import com.nelson.aluraflix.Enum.CategoryEnum;
+import com.nelson.aluraflix.DTO.VideoDTO;
+import com.nelson.aluraflix.entity.Category;
+import com.nelson.aluraflix.entity.Video;
 import com.nelson.aluraflix.repository.VideoRepository;
+import com.nelson.aluraflix.service.VideoService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,6 +77,15 @@ public class VideoServiceImpl implements VideoService {
     }
 
     public Video convertToEntity(VideoDTO videoDTO) {
+
+        // Se o video não vir com categoria, será categoria default 'Livre'
+        if (videoDTO.getCategory().getId() == null) {
+
+            Category category = new Category();
+
+            category.setId(CategoryEnum.FREE.getValue());
+            videoDTO.setCategory(category);
+        }
 
         return this.modelMapper.map(videoDTO, Video.class);
     }

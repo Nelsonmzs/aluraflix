@@ -1,6 +1,6 @@
 package com.nelson.aluraflix.controller;
 
-import com.nelson.aluraflix.mapper.VideoDTO;
+import com.nelson.aluraflix.DTO.VideoDTO;
 import com.nelson.aluraflix.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

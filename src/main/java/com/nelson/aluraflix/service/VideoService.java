@@ -1,6 +1,6 @@
 package com.nelson.aluraflix.service;
 
-import com.nelson.aluraflix.mapper.VideoDTO;
+import com.nelson.aluraflix.DTO.VideoDTO;
 
 import java.util.List;
 
